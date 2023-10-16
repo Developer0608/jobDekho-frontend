@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Login = () => {
-    const buttonStyles = "inline-block px-4 py-2 bg-blue-500 text-white text-lg font-bold rounded-full hover:bg-blue-600 transform hover:scale-105 transition duration-300 ease-in-out";
     return (
 
         <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
