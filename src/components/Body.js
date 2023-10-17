@@ -4,6 +4,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 import Landing from './Landing'
 import SignUp from './SignUp'
+import DashBoard from './DashBoard'
 const Body = () => {
 
   const appRouter = createBrowserRouter([
@@ -18,6 +19,10 @@ const Body = () => {
     {
         "path" : "/signup",
         "element" : <SignUp />
+    },
+    {
+        "path" : "/home",
+        "element" : <DashBoard/>
     }
   ])
   return (
