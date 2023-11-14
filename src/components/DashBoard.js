@@ -23,7 +23,9 @@ const UpgradePopup = ({ onClose }) => {
             <li>Browse, create, and use ChatAI</li>
             <li>Access to additional tools like Upload PDF, Data Parsing, and many more</li>
           </ul>
-          
+          <button className="UpgradeButton" onClick={onClose}>
+            Upgrade to Premium
+          </button>
         </div>
       </div>
     </div>
@@ -35,6 +37,13 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [showUpgradePopup, setShowUpgradePopup] = useState(false);
   const messagesRef = useRef(null);
+
+  const openNewChat = () => {
+    // Clear all chat messages
+    setMessages([]);
+    
+    // Other logic for opening a new chat
+  };
 
   useEffect(() => {
     // Scroll to the bottom when messages change
@@ -81,6 +90,16 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className="Sidebar">
+        <button className="NewChatButton" onClick={openNewChat}>+ New Chat</button>
+        <div className="UserNameSection">
+          <span className="UserName" onClick={() => console.log('User clicked')}>User Name</span>
+          <div className="UserDropdown">
+            <span onClick={() => console.log('Settings clicked')}>Settings</span>
+            <span onClick={() => console.log('Logout clicked')}>Logout</span>
+          </div>
+        </div>
+      </div>
       <div className="ChatWindow">
         <div className="Help">
           <h1><b>ChatAI-V1</b></h1>
@@ -121,6 +140,10 @@ const App = () => {
         {showUpgradePopup && (
           <UpgradePopup onClose={closeUpgradePopup} />
         )}
+
+        <div className="Footer">
+          <p>ChatAI can make mistakes. Consider checking important information.</p>
+        </div>
       </div>
     </div>
   );
