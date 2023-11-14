@@ -7,6 +7,9 @@
   padding: 10px 0;
 } */
 
+.hello {
+  display: flex;
+}
 .App {
   display: flex;
   justify-content: center;
@@ -98,4 +101,20 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Add this to your existing App.css file or create a new CSS file */
+.ChatWindow {
+  position: relative;
+}
+
+.Help {
+  background-color: black;
+  color: rgb(249, 224, 224);
+  text-align: center;
+  padding: 10px;
+}
+
+.Messages {
+  margin-top: 50px; /* Adjust the top margin as needed */
 }

@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 const UserAvatar = 'https://cdn.iconscout.com/icon/premium/png-512-thumb/profile-picture-7301051-6012170.png?f=webp&w=256';
@@ -8,6 +8,14 @@ const BotAvatar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZjFCL8
 const App = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const messagesRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to the bottom when messages change
+    if (messagesRef.current) {
+      messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   const sendMessage = async (text) => {
     setMessages([...messages, { text, isUser: true }]);
@@ -40,7 +48,10 @@ const App = () => {
   return (
     <div className="App">
       <div className="ChatWindow">
-        <div className="Messages">
+        <div className="Help">
+          <h1><b>ChatAI-V1</b></h1>
+        </div>
+        <div className="Messages" ref={messagesRef}>
           {loading && <div className="Loader"></div>}
           {messages.map((msg, index) => (
             <Message key={index} text={msg.text} isUser={msg.isUser} />
