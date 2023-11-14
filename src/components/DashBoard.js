@@ -1,13 +1,39 @@
 // src/App.js
+
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 const UserAvatar = 'https://cdn.iconscout.com/icon/premium/png-512-thumb/profile-picture-7301051-6012170.png?f=webp&w=256';
 const BotAvatar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZjFCL8buwwGuuZKRsN8IqT84-PPujC-DVuIHzFS86Pj_xnLVnnFao_6vDmE7s0IJPTFY';
 
+const UpgradePopup = ({ onClose }) => {
+  return (
+    <div className="UpgradePopupOverlay">
+      <div className="UpgradePopup">
+        <div className="UpgradePopupHeader">
+          <span onClick={onClose} className="UpgradePopupCloseButton">
+            &times;
+          </span>
+        </div>
+        <div className="UpgradePopupContent">
+          <h2>Upgrade to Premium Plan</h2>
+          <p>To enjoy the Beta Version Exclusive Access.</p>
+          <ul>
+            <li>Access to ChatAI-V2, our most capable model</li>
+            <li>Browse, create, and use ChatAI</li>
+            <li>Access to additional tools like Upload PDF, Data Parsing, and many more</li>
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const App = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showUpgradePopup, setShowUpgradePopup] = useState(false);
   const messagesRef = useRef(null);
 
   useEffect(() => {
@@ -43,6 +69,14 @@ const App = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const openUpgradePopup = () => {
+    setShowUpgradePopup(true);
+  };
+
+  const closeUpgradePopup = () => {
+    setShowUpgradePopup(false);
   };
 
   return (
@@ -81,6 +115,12 @@ const App = () => {
             Send
           </button>
         </div>
+        <div className="UpgradeButton">
+          <button onClick={openUpgradePopup}>Upgrade</button>
+        </div>
+        {showUpgradePopup && (
+          <UpgradePopup onClose={closeUpgradePopup} />
+        )}
       </div>
     </div>
   );
