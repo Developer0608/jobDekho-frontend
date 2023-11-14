@@ -35,7 +35,7 @@ const Landing = () => {
             </li>
             <li>
               <a
-                href="#recruiter"
+                href="/login"
                 className={`hover:underline text-white transition duration-300 ease-in-out transform hover:scale-110 ${buttonStyles}`}
               >
                 Login as Recruiter

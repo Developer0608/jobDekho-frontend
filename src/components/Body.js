@@ -5,6 +5,7 @@ import { RouterProvider } from 'react-router-dom'
 import Landing from './Landing'
 import SignUp from './SignUp'
 import DashBoard from './DashBoard'
+import JobUploadForm from './JobUploadForm'
 const Body = () => {
 
   const appRouter = createBrowserRouter([
@@ -23,6 +24,10 @@ const Body = () => {
     {
         "path" : "/home",
         "element" : <DashBoard/>
+    },
+    {
+        "path" : "/job",
+        "element" : <JobUploadForm />
     }
   ])
   return (

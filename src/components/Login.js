@@ -1,10 +1,41 @@
 import React from 'react';
 
 const Login = () => {
+    const buttonStyles = "inline-block px-4 py-2 bg-blue-500 text-white text-lg font-bold rounded-full hover:bg-blue-600 transform hover:scale-105 transition duration-300 ease-in-out";
     return (
 
         <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
-            
+            <header className="p-4 flex justify-between items-center">
+        <h1 className="text-4xl text-blue-500 font-extrabold">JobDekho</h1>
+        <nav>
+          <ul className="flex space-x-4 text-white">
+            <li>
+              <a
+                href="/signup"
+                className={`hover:underline text-white transition duration-300 ease-in-out transform hover:scale-110 ${buttonStyles}`}
+              >
+                Sign Up
+              </a>
+            </li>
+            <li>
+              <a
+                href="/login"
+                className={`hover:underline text-white transition duration-300 ease-in-out transform hover:scale-110 ${buttonStyles}`}
+              >
+                Login
+              </a>
+            </li>
+            <li>
+              <a
+                href="/login"
+                className={`hover:underline text-white transition duration-300 ease-in-out transform hover:scale-110 ${buttonStyles}`}
+              >
+                Login as Recruiter
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
             <img
                 src="https://c0.wallpaperflare.com/path/751/2/550/chart-graph-business-finance-e32ee24807945ae9a6f2003739b691fd.jpg"
@@ -12,7 +43,8 @@ const Login = () => {
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
 
-           
+
+
             <div
                 style={{
                     position: 'absolute',
