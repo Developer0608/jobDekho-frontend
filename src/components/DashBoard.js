@@ -38,15 +38,12 @@ const App = () => {
   const [showUpgradePopup, setShowUpgradePopup] = useState(false);
   const messagesRef = useRef(null);
 
-  const openNewChat = () => {
-    // Clear all chat messages
-    setMessages([]);
-    
-    // Other logic for opening a new chat
+  const openNewChat = () => { 
+    setMessages([]); 
   };
 
   useEffect(() => {
-    // Scroll to the bottom when messages change
+    
     if (messagesRef.current) {
       messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
     }
