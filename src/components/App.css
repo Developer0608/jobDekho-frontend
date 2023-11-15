@@ -20,9 +20,8 @@
 
 .ChatWindow {
   width: 100%;  
-  height: 90vh; /* Updated height */
-  max-width: 800px; /* Set a max-width if needed */
-  border: 1px solid #ccc;
+  height: 90vh;  
+  max-width: 800px;  
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
@@ -55,7 +54,8 @@
 }
 
 .Message .Text {
-  background-color: #fff;
+  color: white;
+  background-color: #353333;
   padding: 8px;
   border-radius: 5px;
   max-width: 500px;
@@ -63,19 +63,20 @@
 }
 
 .Message.user .Text {
-  background-color: #dcf8c6;
+  color: white;
+  background-color: #353333;
 }
 
 .InputArea {
   display: flex;
-  padding: 10px;
-  background-color: #fff;
+  /* padding: 10px; */
+  background-color: #2d2c2c;
 }
 
 .InputArea input {
   flex: 1;
   padding: 8px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 5px;
   outline: none;
 }
