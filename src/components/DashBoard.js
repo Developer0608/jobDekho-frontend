@@ -64,6 +64,8 @@ const App = () => {
         body: JSON.stringify({ request: text }),
       });
 
+     
+
       const apiResponse = await response.json();
       setMessages([
         ...messages,
@@ -72,6 +74,7 @@ const App = () => {
       ]);
     } catch (err) {
       console.error('API Error:', err);
+       
     } finally {
       setLoading(false);
     }
@@ -99,7 +102,7 @@ const App = () => {
       </div>
       <div className="ChatWindow">
         <div className="Help">
-          <h1><b>ChatAI-V1</b></h1>
+          <h1><b>chatAI</b></h1>
         </div>
         <div className="Messages" ref={messagesRef}>
           {loading && <div className="Loader"></div>}
