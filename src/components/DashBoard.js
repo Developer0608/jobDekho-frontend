@@ -51,7 +51,7 @@ const App = () => {
 
   const sendMessage = async (text) => {
     setMessages([...messages, { text, isUser: true }]);
-    const api = 'https://81cd-223-233-83-174.ngrok-free.app/module/v1/response';
+    const api = 'https://40e1-223-233-85-68.ngrok-free.app/module/v1/response';
 
     try {
       setLoading(true);
