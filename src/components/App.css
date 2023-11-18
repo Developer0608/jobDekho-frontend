@@ -114,6 +114,7 @@
 .Help h1 b {
   color: white;
   font-weight: bold;
+  font-size: 2rem;
 }
 
 .Messages {
@@ -211,15 +212,6 @@
   top: 0; /* Position from the top of the screen */
 }
 
-.NewChatButton {
-  background-color: black;
-  color: white;
-  border: 1px solid white;
-  padding: 10px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  width: 150px;
-}
 
 .UserNameSection {
   margin-top: auto; /* Move UserNameSection to the bottom */
@@ -283,5 +275,20 @@
   width: 80%; /* Adjust this value based on the width of your chatbox */
 }
 
+.NewChatButton {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  width: 150px;
+  display: flex;
+  align-items: center;
+}
 
- 
+.Logo {
+  width: 20px;  
+  height: 20px; 
+  border-radius: 50%; 
+  margin-right: 7px; 
+}

@@ -91,7 +91,10 @@ const App = () => {
   return (
     <div className="App">
       <div className="Sidebar">
-        <button className="NewChatButton" onClick={openNewChat}>+ New Chat</button>
+        <button className="NewChatButton" onClick={openNewChat}>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZjFCL8buwwGuuZKRsN8IqT84-PPujC-DVuIHzFS86Pj_xnLVnnFao_6vDmE7s0IJPTFY" alt="Logo" className="Logo" />
+            New Chat
+        </button>
         <div className="UserNameSection">
           <span className="UserName" onClick={() => console.log('User clicked')}>User Name</span>
           <div className="UserDropdown">
@@ -102,7 +105,7 @@ const App = () => {
       </div>
       <div className="ChatWindow">
         <div className="Help">
-          <h1><b>chatAI</b></h1>
+          <h1><b>ModernAI</b></h1>
         </div>
         <div className="Messages" ref={messagesRef}>
           {loading && <div className="Loader"></div>}
