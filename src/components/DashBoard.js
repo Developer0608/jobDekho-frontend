@@ -1,5 +1,3 @@
-// src/App.js
-
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
@@ -51,8 +49,8 @@ const App = () => {
 
   const sendMessage = async (text) => {
     setMessages([...messages, { text, isUser: true }]);
-    const api = 'https://40e1-223-233-85-68.ngrok-free.app/module/v1/response';
-
+    const api = `https://2i0bz0x61k.execute-api.us-east-1.amazonaws.com/dev/module/v1/response`;
+    // const api = 'http://localhost:4001/module/v1/response'
     try {
       setLoading(true);
 
