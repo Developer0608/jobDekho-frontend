@@ -1,35 +1,71 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.css';
+import Swal from 'sweetalert2';
 import './Login.css'; // Import your CSS file
+import  axios  from 'axios';
 
 const SignUpComponent = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
   const handleSignUp = async () => {
-    // Replace 'your-api-endpoint' with the actual API endpoint for sign-up
-    const apiUrl = 'https://your-api-endpoint.com/signup';
+    const apiUrl = 'http://localhost:4001/signup';
 
     try {
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username,
-          email,
-          password,
-        }),
-      });
 
+      if(email.length == 0 || password.length == 0 || username.length == 0 ) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Please fill all the fields',
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
+          return;  
+      }
+      if(!email.includes('@')) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Please provide proper email address',
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          return;
+      }
+     
+        const response = await axios.post(apiUrl, {
+            username,
+            email,
+            password,
+        });
+
+      console.log('RESPONSE ::: ', response)
       if (response.ok) {
         // Handle successful sign-up
         console.log('Sign-up successful');
+        Swal.fire({
+            icon: 'success',
+            title: 'Sign-up successful',
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          localStorage.setItem('token', response.data.token)
+          navigate('/home')
       } else {
         // Handle sign-up failure
         console.error('Sign-up failed');
+        Swal.fire({
+            icon: 'error',
+            title: response.data.message,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+          });
       }
     } catch (error) {
       console.error('Error during sign-up:', error);

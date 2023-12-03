@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.css';
+import Swal from 'sweetalert2';
 import './Login.css'; // Import your CSS file
+import  axios  from 'axios';
 
-const YourComponent = () => {
-  const [username, setUsername] = useState('');
+const LoginComponent = () => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
@@ -13,27 +15,71 @@ const YourComponent = () => {
   }
   const handleLogin = async () => {
     // You should replace 'your-api-endpoint' with the actual API endpoint
-    const apiUrl = 'https://your-api-endpoint.com/login';
+    const apiUrl = 'http://localhost:4001/login';
 
     try {
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
 
-      if (response.ok) {
-        console.log('Login successful');
-      } else {
-        console.error('Login failed');
-      }
+        if(email.length == 0 || password.length == 0 ) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Please fill all the fields',
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+    
+              return;  
+          }
+
+        if(!email.includes('@')) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Please provide proper email address',
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              return;
+          }
+
+        const response = await axios.post(apiUrl, {
+            email,
+            password,
+        });
+
+        // console.log(response);
+
+        if (response.ok) {
+            // Handle successful sign-up
+            console.log('Sign-up successful');
+            Swal.fire({
+                icon: 'success',
+                title: 'Sign-up successful',
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              localStorage.setItem('token', response.data.token)
+              navigate('/home')
+          } else {
+            // Handle sign-up failure
+            console.error('Sign-up failed', response.data);
+            Swal.fire({
+                icon: 'error',
+                title: response.data.message,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+          }
     } catch (error) {
-      console.error('Error during login:', error);
+        Swal.fire({
+            icon: 'error',
+            title: error.response.data.message,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+          });
     }
   };
 
@@ -48,9 +94,9 @@ const YourComponent = () => {
               <input
                 type="text"
                 className="login__input"
-                placeholder="User name / Email"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="login__field">
@@ -89,4 +135,4 @@ const YourComponent = () => {
   );
 };
 
-export default YourComponent;
+export default LoginComponent;
