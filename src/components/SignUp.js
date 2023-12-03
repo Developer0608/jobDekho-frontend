@@ -35,10 +35,11 @@ const SignUpComponent = () => {
       console.error('Error during sign-up:', error);
     }
   };
-
+ 
   return (
     <div className="container">
       <div className="screen">
+     
         <div className="screen__content" style={{ backgroundColor: 'white' }}>
           <form className="login">
             <div className="login__field">
@@ -79,6 +80,7 @@ const SignUpComponent = () => {
               <span className="button__text">Sign Up Now</span>
               <i className="button__icon fas fa-chevron-right"></i>
             </button>
+            
           </form>
         </div>
         <div className="screen__background">

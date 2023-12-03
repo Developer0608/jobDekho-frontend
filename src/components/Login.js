@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './Login.css'; // Import your CSS file
 
@@ -6,6 +7,10 @@ const YourComponent = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+  const handleSignUp = () => {
+     navigate('/signup');
+  }
   const handleLogin = async () => {
     // You should replace 'your-api-endpoint' with the actual API endpoint
     const apiUrl = 'https://your-api-endpoint.com/login';
@@ -64,6 +69,14 @@ const YourComponent = () => {
               onClick={handleLogin}
             >
               <span className="button__text">Log In Now</span>
+              <i className="button__icon fas fa-chevron-right"></i>
+            </button>
+            <button
+              className="button login__submit"
+              type="button" // Use type="button" to prevent form submission
+              onClick={handleSignUp}
+            >
+              <span className="button__text">Didn't Have Account</span>
               <i className="button__icon fas fa-chevron-right"></i>
             </button>
           </form>
