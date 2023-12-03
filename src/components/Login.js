@@ -15,7 +15,7 @@ const LoginComponent = () => {
   }
   const handleLogin = async () => {
     // You should replace 'your-api-endpoint' with the actual API endpoint
-    const apiUrl = 'http://localhost:4001/login';
+    const apiUrl = 'http://52.73.224.239:4001/login';
 
     try {
 
@@ -47,10 +47,9 @@ const LoginComponent = () => {
             password,
         });
 
-        // console.log(response);
+        console.log(response);
 
-        if (response.ok) {
-            // Handle successful sign-up
+        if (response.status === 200) {
             console.log('Sign-up successful');
             Swal.fire({
                 icon: 'success',

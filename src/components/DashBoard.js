@@ -50,7 +50,7 @@ const App = () => {
   const sendMessage = async (text) => {
     setMessages([...messages, { text, isUser: true }]);
     // const api = `https://2i0bz0x61k.execute-api.us-east-1.amazonaws.com/dev/module/v1/response`;
-    const api = 'http://localhost:4001/module/v1/response'
+    const api = 'http://52.73.224.239:4001/module/v1/response'
     try {
       setLoading(true);
 

@@ -11,7 +11,7 @@ const SignUpComponent = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const handleSignUp = async () => {
-    const apiUrl = 'http://localhost:4001/signup';
+    const apiUrl = 'http://52.73.224.239:4001/signup';
 
     try {
 
