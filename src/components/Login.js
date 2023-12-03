@@ -19,7 +19,7 @@ const LoginComponent = () => {
 
     try {
 
-        if(email.length == 0 || password.length == 0 ) {
+        if(email.length === 0 || password.length === 0 ) {
             Swal.fire({
                 icon: 'error',
                 title: 'Please fill all the fields',

@@ -15,7 +15,7 @@ const SignUpComponent = () => {
 
     try {
 
-      if(email.length == 0 || password.length == 0 || username.length == 0 ) {
+      if(email.length === 0 || password.length === 0 || username.length === 0 ) {
         Swal.fire({
             icon: 'error',
             title: 'Please fill all the fields',
@@ -54,7 +54,7 @@ const SignUpComponent = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          localStorage.setItem('token', response.data.token)
+          localStorage.setItem('token', response.data.token)    
           navigate('/home')
       } else {
         // Handle sign-up failure
