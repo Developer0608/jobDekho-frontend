@@ -11,8 +11,8 @@ const Body = () => {
   const appRouter = createBrowserRouter([
     {
         "path" : "/home",
-        // "element" : <PrivateRoute element={<DashBoard/>} />
-        "element" : <DashBoard />
+        "element" : <PrivateRoute element={<DashBoard/>} />
+        // "element" : <DashBoard />
     },
     {
       "path" : "/login",
