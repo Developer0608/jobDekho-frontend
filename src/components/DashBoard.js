@@ -49,8 +49,8 @@ const App = () => {
 
   const sendMessage = async (text) => {
     setMessages([...messages, { text, isUser: true }]);
-    const api = `https://2i0bz0x61k.execute-api.us-east-1.amazonaws.com/dev/module/v1/response`;
-    // const api = 'http://localhost:4001/module/v1/response'
+    // const api = `https://2i0bz0x61k.execute-api.us-east-1.amazonaws.com/dev/module/v1/response`;
+    const api = 'http://localhost:4001/module/v1/response'
     try {
       setLoading(true);
 
@@ -142,9 +142,9 @@ const App = () => {
           <UpgradePopup onClose={closeUpgradePopup} />
         )}
 
-        <div className="Footer">
+        {/* <div className="Footer">
           <p>ChatAI can make mistakes. Consider checking important information.</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

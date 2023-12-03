@@ -1,0 +1,101 @@
+/* Add your global styles here if needed */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(90deg, #3498db, #8e44ad);
+    color: #fff;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .landing-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .brand {
+    text-align: left;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin: 0;
+  }
+  
+  span {
+    font-size: 14px;
+    display: block;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .login-button,
+  .signup-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    border: 2px solid #fff;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .login-button:hover,
+  .signup-button:hover {
+    background-color: #fff;
+    color: #3498db;
+  }
+  
+  .content {
+    margin-top: 100px !important;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+  
+  .quotes {
+    margin-top: 20px;
+  }
+  
+  blockquote {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  cite {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    color: #ccc;
+    margin-top: 5px;
+  }
+  
+  /* Add styles for other components as needed */
+  
