@@ -11,7 +11,8 @@ const SignUpComponent = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const handleSignUp = async () => {
-    const apiUrl = 'http://52.73.224.239:4001/signup';
+    // const apiUrl = 'http://localhost:4001/signup';
+    const apiUrl = 'https://ek1k6vkilc.execute-api.us-east-1.amazonaws.com/dev/signup';
 
     try {
 
@@ -44,7 +45,7 @@ const SignUpComponent = () => {
         });
 
       console.log('RESPONSE ::: ', response)
-      if (response.ok) {
+      if (response.status === 201) {
         // Handle successful sign-up
         console.log('Sign-up successful');
         Swal.fire({

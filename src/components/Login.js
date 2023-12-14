@@ -15,8 +15,10 @@ const LoginComponent = () => {
   }
   const handleLogin = async () => {
     // You should replace 'your-api-endpoint' with the actual API endpoint
-    const apiUrl = 'http://52.73.224.239:4001/login';
-
+    // const apiUrl = 'http://localhost:4001/login';
+    const apiUrl = 'https://ek1k6vkilc.execute-api.us-east-1.amazonaws.com/dev/login';
+    // const apiUrl = `${process.env.API}/login`
+    console.log(process.env.API);
     try {
 
         if(email.length === 0 || password.length === 0 ) {
@@ -48,7 +50,7 @@ const LoginComponent = () => {
         });
 
         console.log(response);
-
+        // return;
         if (response.status === 200) {
             console.log('Sign-up successful');
             Swal.fire({

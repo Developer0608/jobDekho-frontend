@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
-
+import Swal from 'sweetalert2';
 const UserAvatar = 'https://cdn.iconscout.com/icon/premium/png-512-thumb/profile-picture-7301051-6012170.png?f=webp&w=256';
 const BotAvatar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZjFCL8buwwGuuZKRsN8IqT84-PPujC-DVuIHzFS86Pj_xnLVnnFao_6vDmE7s0IJPTFY';
 
@@ -31,6 +32,7 @@ const UpgradePopup = ({ onClose }) => {
 };
 
 const App = () => {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showUpgradePopup, setShowUpgradePopup] = useState(false);
@@ -49,8 +51,9 @@ const App = () => {
 
   const sendMessage = async (text) => {
     setMessages([...messages, { text, isUser: true }]);
-    // const api = `https://2i0bz0x61k.execute-api.us-east-1.amazonaws.com/dev/module/v1/response`;
-    const api = 'http://52.73.224.239:4001/module/v1/response'
+    const api = `https://ek1k6vkilc.execute-api.us-east-1.amazonaws.com/dev/module/v1/response`;
+    // const api = 'http://localhost:4001/module/v1/response'
+    // const api = process.env.API 
     try {
       setLoading(true);
 
@@ -146,6 +149,19 @@ const App = () => {
           <p>ChatAI can make mistakes. Consider checking important information.</p>
         </div> */}
       </div>
+      <button className="LogoutButton" onClick={() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Logged out',
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        localStorage.clear();
+        navigate('/login');
+      }}>
+        Logout
+      </button>
     </div>
   );
 };
