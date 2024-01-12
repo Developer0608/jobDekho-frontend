@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './App.css';
-import Swal from 'sweetalert2';
-const UserAvatar = 'https://cdn.iconscout.com/icon/premium/png-512-thumb/profile-picture-7301051-6012170.png?f=webp&w=256';
-const BotAvatar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZjFCL8buwwGuuZKRsN8IqT84-PPujC-DVuIHzFS86Pj_xnLVnnFao_6vDmE7s0IJPTFY';
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import "./App.css";
+import Swal from "sweetalert2";
+const UserAvatar =
+  "https://cdn.iconscout.com/icon/premium/png-512-thumb/profile-picture-7301051-6012170.png?f=webp&w=256";
+const BotAvatar =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZjFCL8buwwGuuZKRsN8IqT84-PPujC-DVuIHzFS86Pj_xnLVnnFao_6vDmE7s0IJPTFY";
 
 const UpgradePopup = ({ onClose }) => {
   return (
@@ -20,7 +22,10 @@ const UpgradePopup = ({ onClose }) => {
           <ul>
             <li>Access to ChatAI-V2, our most capable model</li>
             <li>Browse, create, and use ChatAI</li>
-            <li>Access to additional tools like Upload PDF, Data Parsing, and many more</li>
+            <li>
+              Access to additional tools like Upload PDF, Data Parsing, and many
+              more
+            </li>
           </ul>
           <button className="UpgradeButton" onClick={onClose}>
             Upgrade to Premium
@@ -38,12 +43,11 @@ const App = () => {
   const [showUpgradePopup, setShowUpgradePopup] = useState(false);
   const messagesRef = useRef(null);
 
-  const openNewChat = () => { 
-    setMessages([]); 
+  const openNewChat = () => {
+    setMessages([]);
   };
 
   useEffect(() => {
-    
     if (messagesRef.current) {
       messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
     }
@@ -51,21 +55,19 @@ const App = () => {
 
   const sendMessage = async (text) => {
     setMessages([...messages, { text, isUser: true }]);
-    const api = `https://ek1k6vkilc.execute-api.us-east-1.amazonaws.com/dev/module/v1/response`;
+    const api = `https://zgfxhztr2h.execute-api.us-east-1.amazonaws.com/dev`;
     // const api = 'http://localhost:4001/module/v1/response'
-    // const api = process.env.API 
+    // const api = process.env.API
     try {
       setLoading(true);
 
       const response = await fetch(api, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ request: text }),
       });
-
-     
 
       const apiResponse = await response.json();
       setMessages([
@@ -74,8 +76,7 @@ const App = () => {
         { text: apiResponse.message.response, isUser: false },
       ]);
     } catch (err) {
-      console.error('API Error:', err);
-       
+      console.error("API Error:", err);
     } finally {
       setLoading(false);
     }
@@ -93,20 +94,33 @@ const App = () => {
     <div className="App">
       <div className="Sidebar">
         <button className="NewChatButton" onClick={openNewChat}>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZjFCL8buwwGuuZKRsN8IqT84-PPujC-DVuIHzFS86Pj_xnLVnnFao_6vDmE7s0IJPTFY" alt="Logo" className="Logo" />
-            New Chat
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZjFCL8buwwGuuZKRsN8IqT84-PPujC-DVuIHzFS86Pj_xnLVnnFao_6vDmE7s0IJPTFY"
+            alt="Logo"
+            className="Logo"
+          />
+          New Chat
         </button>
         <div className="UserNameSection">
-          <span className="UserName" onClick={() => console.log('User clicked')}>User Name</span>
+          <span
+            className="UserName"
+            onClick={() => console.log("User clicked")}
+          >
+            User Name
+          </span>
           <div className="UserDropdown">
-            <span onClick={() => console.log('Settings clicked')}>Settings</span>
-            <span onClick={() => console.log('Logout clicked')}>Logout</span>
+            <span onClick={() => console.log("Settings clicked")}>
+              Settings
+            </span>
+            <span onClick={() => console.log("Logout clicked")}>Logout</span>
           </div>
         </div>
       </div>
       <div className="ChatWindow">
         <div className="Help">
-          <h1><b>ModernAI</b></h1>
+          <h1>
+            <b>ModernAI</b>
+          </h1>
         </div>
         <div className="Messages" ref={messagesRef}>
           {loading && <div className="Loader"></div>}
@@ -119,19 +133,19 @@ const App = () => {
             type="text"
             placeholder="Type a message..."
             onKeyPress={(e) => {
-              if (e.key === 'Enter') {
+              if (e.key === "Enter") {
                 sendMessage(e.target.value);
-                e.target.value = '';
+                e.target.value = "";
               }
             }}
           />
           <button
             className="SendButton"
             onClick={() => {
-              const input = document.querySelector('.InputArea input');
-              if (input.value.trim() !== '') {
+              const input = document.querySelector(".InputArea input");
+              if (input.value.trim() !== "") {
                 sendMessage(input.value);
-                input.value = '';
+                input.value = "";
               }
             }}
           >
@@ -141,25 +155,26 @@ const App = () => {
         <div className="UpgradeButton">
           <button onClick={openUpgradePopup}>Upgrade</button>
         </div>
-        {showUpgradePopup && (
-          <UpgradePopup onClose={closeUpgradePopup} />
-        )}
+        {showUpgradePopup && <UpgradePopup onClose={closeUpgradePopup} />}
 
         {/* <div className="Footer">
           <p>ChatAI can make mistakes. Consider checking important information.</p>
         </div> */}
       </div>
-      <button className="LogoutButton" onClick={() => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Logged out',
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        localStorage.clear();
-        navigate('/login');
-      }}>
+      <button
+        className="LogoutButton"
+        onClick={() => {
+          Swal.fire({
+            icon: "success",
+            title: "Logged out",
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          localStorage.clear();
+          navigate("/login");
+        }}
+      >
         Logout
       </button>
     </div>
@@ -168,13 +183,13 @@ const App = () => {
 
 const Message = ({ text, isUser }) => {
   return (
-    <div className={`Message ${isUser ? 'user' : 'bot'}`}>
+    <div className={`Message ${isUser ? "user" : "bot"}`}>
       <img
         className="Avatar"
         src={isUser ? UserAvatar : BotAvatar}
-        alt={isUser ? 'User Avatar' : 'Bot Avatar'}
+        alt={isUser ? "User Avatar" : "Bot Avatar"}
       />
-      <div className={`Text ${isUser ? 'user' : 'bot'}`}>{text}</div>
+      <div className={`Text ${isUser ? "user" : "bot"}`}>{text}</div>
     </div>
   );
 };
