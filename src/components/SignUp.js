@@ -12,7 +12,8 @@ const SignUpComponent = () => {
   const navigate = useNavigate();
   const handleSignUp = async () => {
     // const apiUrl = 'http://localhost:4001/signup';
-    const apiUrl = "https://zgfxhztr2h.execute-api.us-east-1.amazonaws.com/dev";
+    const apiUrl =
+      "https://zgfxhztr2h.execute-api.us-east-1.amazonaws.com/dev/signup";
 
     try {
       if (

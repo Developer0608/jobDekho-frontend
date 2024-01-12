@@ -55,7 +55,7 @@ const App = () => {
 
   const sendMessage = async (text) => {
     setMessages([...messages, { text, isUser: true }]);
-    const api = `https://zgfxhztr2h.execute-api.us-east-1.amazonaws.com/dev`;
+    const api = `https://zgfxhztr2h.execute-api.us-east-1.amazonaws.com/dev/module/v1/response`;
     // const api = 'http://localhost:4001/module/v1/response'
     // const api = process.env.API
     try {

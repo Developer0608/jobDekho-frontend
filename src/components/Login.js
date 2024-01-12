@@ -16,7 +16,8 @@ const LoginComponent = () => {
   const handleLogin = async () => {
     // You should replace 'your-api-endpoint' with the actual API endpoint
     // const apiUrl = 'http://localhost:4001/login';
-    const apiUrl = "https://zgfxhztr2h.execute-api.us-east-1.amazonaws.com/dev";
+    const apiUrl =
+      "https://zgfxhztr2h.execute-api.us-east-1.amazonaws.com/dev/login";
     // const apiUrl = `${process.env.API}/login`
     console.log(process.env.API);
     try {
