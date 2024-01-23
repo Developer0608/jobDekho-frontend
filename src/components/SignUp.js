@@ -13,7 +13,7 @@ const SignUpComponent = () => {
   const handleSignUp = async () => {
     // const apiUrl = 'http://localhost:4001/signup';
     const apiUrl =
-      "https://zgfxhztr2h.execute-api.us-east-1.amazonaws.com/dev/signup";
+      "https://cbbba8fvhe.execute-api.us-east-1.amazonaws.com/dev/signup";
 
     try {
       if (
@@ -123,7 +123,7 @@ const SignUpComponent = () => {
           </form>
         </div>
         <div className="screen__background">{/* ... (unchanged) */}</div>
-      </div>
+       </div>
     </div>
   );
 };
